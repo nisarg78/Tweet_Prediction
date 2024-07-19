@@ -9,3 +9,7 @@ lime==0.1.1.36
 blis==0.7.5
 thinc==8.0.15
 streamlit==1.18.1
+pip==24.1.2
+setuptools==68.0.0
+wheel==0.40.0
+streamlit==1.18.1
