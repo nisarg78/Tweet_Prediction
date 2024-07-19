@@ -37,3 +37,10 @@ After the virtual environment is set up and activated, run the app using the com
 * The front-end app takes in a text sample and outputs LIME explanations for the different methods. The app is is deployed using Heroku
 * Play with your own text examples as shown below and see the fine-grained sentiment results explained!
 ![](./data/assets/sst5-streamlit-explainer.gif)
+
+
+![](./data/deploy.mp4)
+
+
+https://github.com/user-attachments/assets/d317af5e-4a77-499b-bbb5-74d0556ffacb
+
