@@ -42,22 +42,24 @@ METHODS = {
     },
 }
 
+# Load spaCy model
+nlp = spacy.blank('en')
+
+# Add sentencizer to the pipeline if not already present
+if 'sentencizer' not in nlp.pipe_names:
+    nlp.add_pipe('sentencizer', first=True)
 
 def tokenizer(text: str) -> str:
     "Tokenize input string using a spaCy pipeline"
-    nlp = spacy.blank('en')
-    nlp.add_pipe(nlp.create_pipe('sentencizer'))  # Very basic NLP pipeline in spaCy
     doc = nlp(text)
     tokenized_text = ' '.join(token.text for token in doc)
     return tokenized_text
-
 
 def explainer_class(method: str, filename: str) -> Any:
     "Instantiate class using its string name"
     classname = METHODS[method]['class']
     class_ = globals()[classname]
     return class_(filename)
-
 
 class TextBlobExplainer:
     """Class to explain classification results of TextBlob.
@@ -244,7 +246,6 @@ def explainer(method: str,
               lowercase:bool,
               num_samples: int) -> LimeTextExplainer:
     """Run LIME explainer on provided classifier"""
-
     model = explainer_class(method, path_to_file)
     predictor = model.predict
     # Lower case the input text if requested (for certain classifiers)
