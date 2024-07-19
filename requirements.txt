@@ -12,5 +12,5 @@ blis==0.7.5
 thinc==8.0.15
 setuptools==68.0.0
 wheel==0.40.0
-h5py=3.11.0
+h5py==3.11.0
 
