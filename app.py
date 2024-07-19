@@ -2,12 +2,11 @@ import streamlit as st
 import streamlit.components.v1 as components
 from lime_explainer import explainer, tokenizer, METHODS
 
-
 def format_dropdown_labels(val):
     return METHODS[val]['name']
 
 # Define page settings
-st.beta_set_page_config(
+st.set_page_config(
     page_title='LIME explainer app for classification models',
     # layout="wide"
 )
@@ -39,4 +38,3 @@ if st.button("Explain Results"):
                         num_samples=int(n_samples))
         # Display explainer HTML object
         components.html(exp.as_html(), height=800)
-
